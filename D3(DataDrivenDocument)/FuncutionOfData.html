@@ -1,0 +1,17 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Function of data</title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+	</head>
+	<body>
+		<h1>We use DOM MAnipulation methods in Function of data</h1>
+		<p></p>
+		<script>
+		var myData = ["Hello Data Driven Document!"];
+		var p = d3.select("body").select("p").data(myData).text(function(d){
+			return d;
+		});
+		</script>
+	</body>
+</html>
