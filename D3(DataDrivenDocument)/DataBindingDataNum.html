@@ -1,0 +1,16 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Data Binding using datnum() method</title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+	</head>
+	<body>
+		<p>Datnum() function is used for static visualization which does not need updates</p>
+		<p>It binds data directly to an element</p>
+		<script>
+			d3.select("body").select("p").datnum(100).text(function(i){
+				return i;
+			});
+		</script>
+	</body>
+</html>
