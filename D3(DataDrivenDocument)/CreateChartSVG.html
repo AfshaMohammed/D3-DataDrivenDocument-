@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Create Chart using SVG</title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<style>
+			svg text{
+				fill:white;
+				font:15px sans-serif;
+				text-anchor: end;
+			}
+
+	</style>
+	</head>
+	<body>
+	<script>
+		var width=200;
+		var scaleFactor =10;
+		var barHeight = 30;
+
+		var data = [5, 10, 20];
+
+		var graph = d3.select("body").append("svg").attr("width", width).attr("height", barHeight*data.length);
+		var bar = graph.selectAll("g").data(data).enter().append("g").attr("transform", function(d,i){
+			return "translate(0, " +i * barHeight+")";
+		});
+		bar.append("rect").attr("width", function(d){
+			return d*scaleFactor;
+		})
+		.attr("height", barHeight-1);
+
+		bar.append("text").attr("x", function(d){
+			return (d*scaleFactor);
+		}).attr("height", barHeight).attr("dy", "1em").text(function(d){return d;});
+	</script>
+	</body>
+</html>
